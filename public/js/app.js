@@ -1891,22 +1891,129 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      carros: {},
+      id: '',
       marca: '',
       modelo: '',
       ano: '',
       placa: '',
       categoria: '',
-      preco: ''
+      preco: '',
+      editMarca: '',
+      editModelo: '',
+      editAno: '',
+      editPlaca: '',
+      editCategoria: '',
+      editPreco: ''
     };
   },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    this.getResults();
   },
   methods: {
     salvaCarro: function salvaCarro() {
+      var _this = this;
+
       axios.post('salva_carro', {
         marca: this.marca,
         modelo: this.modelo,
@@ -1915,7 +2022,57 @@ __webpack_require__.r(__webpack_exports__);
         categoria: this.categoria,
         preco: this.preco
       }).then(function (response) {
-        return console.log(response);
+        _this.marca = '';
+        _this.modelo = '';
+        _this.ano = '';
+        _this.placa = '';
+        _this.categoria = '';
+        _this.preco = '';
+
+        _this.getResults();
+      });
+    },
+    getResults: function getResults() {
+      var _this2 = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('all_cars?page=' + page).then(function (response) {
+        _this2.carros = response.data;
+      });
+    },
+    editCarro: function editCarro(id) {
+      var _this3 = this;
+
+      axios.get('edit_carro/' + id).then(function (response) {
+        _this3.id = response.data.id;
+        _this3.editMarca = response.data.marca;
+        _this3.editModelo = response.data.modelo;
+        _this3.editAno = response.data.ano;
+        _this3.editPlaca = response.data.placa;
+        _this3.editCategoria = response.data.categoria;
+        _this3.editPreco = response.data.preco;
+      });
+    },
+    updateCarro: function updateCarro() {
+      var _this4 = this;
+
+      axios.put('update_carro', {
+        id: this.id,
+        marca: this.editMarca,
+        modelo: this.editModelo,
+        ano: this.editAno,
+        placa: this.editPlaca,
+        categoria: this.editCategoria,
+        preco: this.editPreco
+      }).then(function (response) {
+        _this4.getResults();
+      });
+    },
+    deleteCarro: function deleteCarro(id) {
+      var _this5 = this;
+
+      axios["delete"]('delete_carro/' + id).then(function (response) {
+        _this5.getResults();
       });
     }
   }
@@ -37588,7 +37745,7 @@ var render = function() {
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header" }, [
-            _vm._v("Example Component")
+            _vm._v("Cadastrar novo veículo")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
@@ -37781,11 +37938,366 @@ var render = function() {
             ])
           ])
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Veículos cadastrados")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c("table", { staticClass: "table table-hover" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.carros.data, function(carro) {
+                    return _c("tr", { key: carro.id }, [
+                      _c("td", [_vm._v(_vm._s(carro.marca))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(carro.modelo))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(carro.ano))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(carro.placa))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(carro.categoria))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(carro.preco))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: {
+                              type: "button",
+                              "data-toggle": "modal",
+                              "data-target": "#staticBackdrop"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editCarro(carro.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                        Editar\n                                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteCarro(carro.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                        Excluir\n                                    "
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              ]),
+              _vm._v(" "),
+              _c("pagination", {
+                attrs: { data: _vm.carros },
+                on: { "pagination-change-page": _vm.getResults }
+              })
+            ],
+            1
+          )
+        ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "staticBackdrop",
+          "data-backdrop": "static",
+          "data-keyboard": "false",
+          tabindex: "-1",
+          "aria-labelledby": "staticBackdropLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("form", [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Marca")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editMarca,
+                        expression: "editMarca"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.editMarca },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.editMarca = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Modelo")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editModelo,
+                        expression: "editModelo"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.editModelo },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.editModelo = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Ano")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editAno,
+                        expression: "editAno"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "number" },
+                    domProps: { value: _vm.editAno },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.editAno = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Placa")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editPlaca,
+                        expression: "editPlaca"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.editPlaca },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.editPlaca = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Categoria")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.editCategoria,
+                          expression: "editCategoria"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.editCategoria = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", [_vm._v("Novo")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Seminovo")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Usado")])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Preço")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editPreco,
+                        expression: "editPreco"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.editPreco },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.editPreco = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [_vm._v("Fechar")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "submit", "data-dismiss": "modal" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.updateCarro($event)
+                    }
+                  }
+                },
+                [_vm._v("Atualizar")]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Marca")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Modelo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Ano")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Placa")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoria")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Preço")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "staticBackdropLabel" } },
+        [_vm._v("Modal title")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
