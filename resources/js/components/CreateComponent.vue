@@ -1,45 +1,87 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Cadastrar novo veículo</div>
+        <div class="row">
+            <div class="col-md-12">
 
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <label>Marca</label>
-                                <input type="text" class="form-control" v-model="marca">
+                    <!--        Modal de criação-->
+                    <!-- Button trigger modal -->
+                    <div class="row justify-content-between">
+                        <ul>
+                            <div class="cadastrar" style="margin-left: -25px">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#criarVeiculo">
+                                    Cadastrar Veículo
+                                </button>
                             </div>
-                            <div class="form-group">
-                                <label>Modelo</label>
-                                <input type="text" class="form-control" v-model="modelo">
+                        </ul>
+                        <ul>
+                            <div class="busca">
+                                <form class="form-inline">
+                                    <input id="search" class="form-control" type="search" placeholder="Digite informações sobre o veículo">
+                                    <button class="btn btn-outline-success" type="submit">Buscar veículo</button>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <label>Ano</label>
-                                <input type="number" class="form-control" v-model="ano">
-                            </div>
-                            <div class="form-group">
-                                <label>Placa</label>
-                                <input type="text" class="form-control" v-model="placa">
-                            </div>
-                            <div class="form-group">
-                                <label>Categoria</label>
-                                <select class="form-control" v-model="categoria">
-                                    <option>Novo</option>
-                                    <option>Seminovo</option>
-                                    <option>Usado</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Preço</label>
-                                <input type="text" class="form-control" v-model="preco">
-                            </div>
-                            <button type="submit" @click.prevent="salvaCarro" class="btn btn-primary">Cadastrar</button>
-                        </form>
+                        </ul>
                     </div>
-                </div>
-            </div>
+
+
+                <!-- Modal -->
+                    <div class="modal fade" id="criarVeiculo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Cadastrar Veículo</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!--                    Cria carro-->
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label>Marca</label>
+                                                <input type="text" class="form-control" v-model="marca">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Modelo</label>
+                                                <input type="text" class="form-control" v-model="modelo">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Ano</label>
+                                                <input type="number" class="form-control" v-model="ano">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Placa</label>
+                                                <input type="text" class="form-control" v-model="placa">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Categoria</label>
+                                                <select class="form-control" v-model="categoria">
+                                                    <option>Novo</option>
+                                                    <option>Seminovo</option>
+                                                    <option>Usado</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Preço</label>
+                                                <input type="text" class="form-control" v-model="preco">
+                                            </div>
+                                            <div class="form-group file">
+                                                <label for="formFileMultiple">Imagens</label>
+                                                <input class="form-control-file" type="file" id="formFileMultiple" multiple>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                <button data-dismiss="modal" type="submit" @click.prevent="salvaCarro" class="btn btn-primary">Cadastrar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                    </div>
+
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Veículos cadastrados</div>
@@ -54,6 +96,7 @@
                                     <th scope="col">Placa</th>
                                     <th scope="col">Categoria</th>
                                     <th scope="col">Preço</th>
+                                    <th scope="col">Opções</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,20 +108,15 @@
                                     <td>{{ carro.categoria }}</td>
                                     <td>{{ carro.preco }}</td>
                                     <td>
-                                        <button
-                                            type="button"
-                                            @click="editCarro(carro.id)"
-                                            class="btn btn-primary"
-                                            data-toggle="modal"
-                                            data-target="#staticBackdrop">
-                                            Editar
-                                        </button>
-                                        <button
-                                            type="button"
-                                            @click="deleteCarro(carro.id)"
-                                            class="btn btn-danger">
-                                            Excluir
-                                        </button>
+                                        <button class="btn btn-outline-secondary bi bi-eye-fill"></button>
+                                        <button type="button"
+                                           @click="deleteCarro(carro.id)"
+                                           class="btn btn-outline-danger bi bi-trash-fill"></button>
+                                        <button type="button"
+                                           @click="editCarro(carro.id)"
+                                           data-toggle="modal"
+                                           data-target="#staticBackdrop"
+                                           class="btn btn-outline-dark bi bi-pencil-fill"></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -90,6 +128,8 @@
                 </div>
             </div>
         </div>
+
+<!--        Modal de edição-->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
