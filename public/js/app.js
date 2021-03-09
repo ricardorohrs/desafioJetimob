@@ -2058,8 +2058,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2072,7 +2070,7 @@ __webpack_require__.r(__webpack_exports__);
       categoria: '',
       preco: '',
       descricao: '',
-      image_path: '',
+      image: '',
       editMarca: '',
       editModelo: '',
       editAno: '',
@@ -2097,7 +2095,7 @@ __webpack_require__.r(__webpack_exports__);
         categoria: this.categoria,
         preco: this.preco,
         descricao: this.descricao,
-        image_path: this.image_path
+        image: this.image
       }).then(function (response) {
         _this.marca = '';
         _this.modelo = '';
@@ -2106,7 +2104,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.categoria = '';
         _this.preco = '';
         _this.descricao = '';
-        _this.image_path = '';
+        _this.image = '';
 
         _this.getResults();
       });
@@ -38902,11 +38900,7 @@ var render = function() {
                           "button",
                           {
                             staticClass: "btn btn-primary",
-                            attrs: {
-                              "data-dismiss": "modal",
-                              onclick: "alert('Veículo cadastrado!')",
-                              type: "submit"
-                            },
+                            attrs: { type: "submit" },
                             on: {
                               click: function($event) {
                                 $event.preventDefault()
@@ -39271,7 +39265,7 @@ var staticRenderFns = [
       _c("ul", [
         _c(
           "div",
-          { staticClass: "cadastrar", staticStyle: { "margin-left": "-25px" } },
+          { staticClass: "cadastrar", staticStyle: { "margin-left": "-40px" } },
           [
             _c(
               "button",
@@ -39285,7 +39279,7 @@ var staticRenderFns = [
               },
               [
                 _vm._v(
-                  "\n                                    Cadastrar Veículo\n                                "
+                  "\n                                Cadastrar Veículo\n                            "
                 )
               ]
             )
@@ -39354,7 +39348,7 @@ var staticRenderFns = [
         staticClass: "form-control-file",
         attrs: {
           type: "file",
-          name: "file",
+          name: "image",
           id: "formFileMultiple",
           multiple: ""
         }

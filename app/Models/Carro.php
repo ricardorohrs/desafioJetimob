@@ -9,7 +9,16 @@ class Carro extends Model
 {
     use HasFactory;
 
-//    protected $fillable = ['marca', 'modelo', 'ano', 'categoria', 'preco'];
+    protected $fillable = [
+        'marca',
+        'modelo',
+        'ano',
+        'placa',
+        'categoria',
+        'preco',
+        'categoria',
+        'image'
+    ];
 
     public function path() {
         return route('veiculos.show', $this);

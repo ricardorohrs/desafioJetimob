@@ -22,7 +22,7 @@ class CreateCarrosTable extends Migration
             $table->enum('categoria', ['Novo', 'Seminovo', 'Usado']);
             $table->double('preco');
             $table->text('descricao')->nullable()->default('Não informado');
-            $table->string('image_path')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

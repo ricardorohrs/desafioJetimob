@@ -131,6 +131,9 @@ return [
     */
 
     'custom' => [
+        'marca' => [
+            'required' => 'A marca do veículo é obrigatória!',
+        ],
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],

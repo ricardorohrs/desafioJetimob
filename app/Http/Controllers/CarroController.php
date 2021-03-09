@@ -7,16 +7,9 @@ use App\Models\Carro;
 
 class CarroController extends Controller
 {
-    public function salva_carro(Request $request)
+    public function salva_carro()
     {
-
-        $request->validate([
-            'marca' => 'required',
-            'modelo' => 'required',
-            'ano' => 'required|integer|min:0|max:2021',
-            'categoria' => 'required',
-            'preco' => 'required',
-        ]);
+        $this->validarDados();
 
         $carro = new Carro();
         $carro->marca = request()->marca;
@@ -26,7 +19,7 @@ class CarroController extends Controller
         $carro->categoria = request()->categoria;
         $carro->preco = request()->preco;
         $carro->descricao = request()->descricao;
-//        $carro->image_path = request()->image_path;
+        $carro->image = request()->image;
         $carro->save();
     }
 
@@ -57,5 +50,22 @@ class CarroController extends Controller
     public function delete_carro($id)
     {
         $carro = Carro::findOrFail($id)->delete();
+    }
+
+    public function validarDados()
+    {
+        return tap(request()->validate([
+            'marca' => 'required',
+            'modelo' => 'required',
+            'ano' => 'required|integer|min:0|max:2021',
+            'categoria' => 'required',
+            'preco' => 'required',
+        ]), function () {
+            if (request()->hasFile('image')) {
+                request()->validate([
+                    'image' => 'file|image|max:5000',
+                ]);
+            }
+        });
     }
 }

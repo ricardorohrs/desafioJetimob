@@ -3,97 +3,95 @@
         <div class="row">
             <div class="col-md-12">
 
-                    <!--        Modal de criação-->
-                    <!-- Button trigger modal -->
-                    <div class="row justify-content-between">
-                        <ul>
-                            <div class="cadastrar" style="margin-left: -25px">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#criarVeiculo">
-                                    Cadastrar Veículo
+                <div class="row justify-content-between">
+                    <ul>
+                        <div class="cadastrar" style="margin-left: -40px">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#criarVeiculo">
+                                Cadastrar Veículo
+                            </button>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div class="busca">
+                            <form class="form-inline">
+                                <input id="search" class="form-control" type="search" placeholder="Digite informações sobre o veículo">
+                                <button class="btn btn-outline-success" type="submit">Buscar veículo</button>
+                            </form>
+                        </div>
+                    </ul>
+                </div>
+
+
+            <!-- Modal de criação -->
+                <div class="modal fade" id="criarVeiculo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel2">Cadastrar Veículo</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                        </ul>
-                        <ul>
-                            <div class="busca">
-                                <form class="form-inline">
-                                    <input id="search" class="form-control" type="search" placeholder="Digite informações sobre o veículo">
-                                    <button class="btn btn-outline-success" type="submit">Buscar veículo</button>
-                                </form>
+                            <!--                    Cria carro-->
+                            <div class="modal-body">
+                                <div class="card-body">
+                                    <form enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>Marca</label>
+                                            <input type="text" class="form-control" v-model="marca">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Modelo</label>
+                                            <input type="text" class="form-control" v-model="modelo">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Ano</label>
+                                            <input type="number" class="form-control" v-model="ano">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Placa</label>
+                                            <input type="text" placeholder="XXX-0000" class="form-control" v-model="placa">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Categoria</label>
+                                            <select class="form-control" v-model="categoria">
+                                                <option>Novo</option>
+                                                <option>Seminovo</option>
+                                                <option>Usado</option>
+                                            </select>
+                                        </div>
+                                        <label>Preço</label>
+                                        <div class="form-group input-group mb-3">
+                                            <span class="input-group-text">R$</span>
+                                            <input type="text" class="form-control" v-model="preco">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descrição</label>
+                                            <textarea type="text" class="form-control" v-model="descricao"></textarea>
+                                        </div>
+                                        <div class="form-group file">
+                                            <label for="formFileMultiple">Imagens</label>
+                                            <input class="form-control-file" type="file" name="image" id="formFileMultiple" multiple>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button
+                                                type="button"
+                                                class="btn btn-secondary"
+                                                data-dismiss="modal">Fechar</button>
+<!--                                            data-dismiss="modal"
+                                                onclick="alert('Veículo cadastrado!')"-->
+                                            <button
+                                                type="submit"
+                                                @click.prevent="salvaCarro"
+                                                class="btn btn-primary">Cadastrar</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                        </ul>
+                        </div>
                     </div>
-
-
-                <!-- Modal -->
-                    <div class="modal fade" id="criarVeiculo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel2">Cadastrar Veículo</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <!--                    Cria carro-->
-                                    <div class="card-body">
-                                        <form enctype="multipart/form-data">
-                                            <div class="form-group">
-                                                <label>Marca</label>
-                                                <input type="text" class="form-control" v-model="marca">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Modelo</label>
-                                                <input type="text" class="form-control" v-model="modelo">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Ano</label>
-                                                <input type="number" class="form-control" v-model="ano">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Placa</label>
-                                                <input type="text" placeholder="XXX-0000" class="form-control" v-model="placa">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Categoria</label>
-                                                <select class="form-control" v-model="categoria">
-                                                    <option>Novo</option>
-                                                    <option>Seminovo</option>
-                                                    <option>Usado</option>
-                                                </select>
-                                            </div>
-                                            <label>Preço</label>
-                                            <div class="form-group input-group mb-3">
-                                                <span class="input-group-text">R$</span>
-                                                <input type="text" class="form-control" v-model="preco">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Descrição</label>
-                                                <textarea type="text" class="form-control" v-model="descricao"></textarea>
-                                            </div>
-                                            <div class="form-group file">
-                                                <label for="formFileMultiple">Imagens</label>
-                                                <input class="form-control-file" type="file" name="file" id="formFileMultiple" multiple>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button
-                                                    type="button"
-                                                    class="btn btn-secondary"
-                                                    data-dismiss="modal">Fechar</button>
-                                                <button
-                                                    data-dismiss="modal"
-                                                    onclick="alert('Veículo cadastrado!')"
-                                                    type="submit"
-                                                    @click.prevent="salvaCarro"
-                                                    class="btn btn-primary">Cadastrar</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                                </div>
-                            </div>
-                    </div>
+                </div>
+            </div>
 
             <div class="col-md-12">
                 <div class="card">
@@ -122,20 +120,20 @@
                                     <td>{{ carro.preco }}</td>
                                     <td>
                                         <a :href="'/veiculos/' + carro.id"
-                                           class="btn btn-outline-secondary bi bi-eye-fill"
+                                            class="btn btn-outline-secondary bi bi-eye-fill"
                                             title="Ver mais">
                                         </a>
                                         <button type="button"
                                            @click="deleteCarro(carro.id)"
                                            class="btn btn-outline-danger bi bi-trash-fill"
-                                            title="Excluir">
+                                           title="Excluir">
                                         </button>
                                         <button type="button"
                                            @click="editCarro(carro.id)"
                                            data-toggle="modal"
                                            data-target="#staticBackdrop"
                                            class="btn btn-outline-dark bi bi-pencil-fill"
-                                            title="Editar">
+                                           title="Editar">
                                         </button>
                                     </td>
                                 </tr>
@@ -149,7 +147,7 @@
             </div>
         </div>
 
-<!--        Modal de edição-->
+        <!-- Modal de edição -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -226,7 +224,7 @@ export default {
             categoria: '',
             preco: '',
             descricao: '',
-            image_path: '',
+            image: '',
             editMarca: '',
             editModelo: '',
             editAno: '',
@@ -249,7 +247,7 @@ export default {
                 categoria: this.categoria,
                 preco: this.preco,
                 descricao: this.descricao,
-                image_path: this.image_path
+                image: this.image
             }).then(response => {
                 this.marca = '';
                 this.modelo = '';
@@ -258,7 +256,7 @@ export default {
                 this.categoria = '';
                 this.preco = '';
                 this.descricao = '';
-                this.image_path = '';
+                this.image = '';
                 this.getResults();
             });
         },

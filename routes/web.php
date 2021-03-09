@@ -16,7 +16,7 @@ use App\Http\Controllers;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
 Auth::routes();
 

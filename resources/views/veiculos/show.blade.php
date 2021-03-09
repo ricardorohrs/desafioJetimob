@@ -42,7 +42,7 @@
         <hr>
         <br>
             <div class="row">
-                <div class="col-6 col-sm-3">
+                <div class="col-md-10 col-sm-3">
                     <span>Descrição</span>
                     <br>
                     <strong>{{ $carro->descricao }}</strong>
