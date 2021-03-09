@@ -570,6 +570,7 @@ pre code {
 .row {
   display: flex;
   flex-wrap: wrap;
+  margin-right: -15px;
   margin-left: -15px;
 }
 
@@ -10001,16 +10002,18 @@ h3 {
     border-color: #dee2e6;
   }
 }
-
-.footer span {
-    justify-content: center;
-    display: flex;
+.footer {
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
-.busca input{
-    margin-right: 7px;
+.footer hr {
+    width: 80%;
 }
 
 #search {
     width: 300px;
+    margin-right: 5px;
 }
+

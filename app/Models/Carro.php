@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Carro extends Model
 {
     use HasFactory;
+
+//    protected $fillable = ['marca', 'modelo', 'ano', 'categoria', 'preco'];
+
+    public function path() {
+        return route('veiculos.show', $this);
+    }
 }

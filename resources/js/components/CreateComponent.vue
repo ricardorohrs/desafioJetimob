@@ -29,7 +29,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Cadastrar Veículo</h5>
+                                    <h5 class="modal-title" id="staticBackdropLabel2">Cadastrar Veículo</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -37,7 +37,7 @@
                                 <div class="modal-body">
                                     <!--                    Cria carro-->
                                     <div class="card-body">
-                                        <form>
+                                        <form enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label>Marca</label>
                                                 <input type="text" class="form-control" v-model="marca">
@@ -52,7 +52,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Placa</label>
-                                                <input type="text" class="form-control" v-model="placa">
+                                                <input type="text" placeholder="XXX-0000" class="form-control" v-model="placa">
                                             </div>
                                             <div class="form-group">
                                                 <label>Categoria</label>
@@ -62,17 +62,30 @@
                                                     <option>Usado</option>
                                                 </select>
                                             </div>
-                                            <div class="form-group">
-                                                <label>Preço</label>
+                                            <label>Preço</label>
+                                            <div class="form-group input-group mb-3">
+                                                <span class="input-group-text">R$</span>
                                                 <input type="text" class="form-control" v-model="preco">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Descrição</label>
+                                                <textarea type="text" class="form-control" v-model="descricao"></textarea>
                                             </div>
                                             <div class="form-group file">
                                                 <label for="formFileMultiple">Imagens</label>
-                                                <input class="form-control-file" type="file" id="formFileMultiple" multiple>
+                                                <input class="form-control-file" type="file" name="file" id="formFileMultiple" multiple>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                <button data-dismiss="modal" type="submit" @click.prevent="salvaCarro" class="btn btn-primary">Cadastrar</button>
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-secondary"
+                                                    data-dismiss="modal">Fechar</button>
+                                                <button
+                                                    data-dismiss="modal"
+                                                    onclick="alert('Veículo cadastrado!')"
+                                                    type="submit"
+                                                    @click.prevent="salvaCarro"
+                                                    class="btn btn-primary">Cadastrar</button>
                                             </div>
                                         </form>
                                     </div>
@@ -108,15 +121,22 @@
                                     <td>{{ carro.categoria }}</td>
                                     <td>{{ carro.preco }}</td>
                                     <td>
-                                        <button class="btn btn-outline-secondary bi bi-eye-fill"></button>
+                                        <a :href="'/veiculos/' + carro.id"
+                                           class="btn btn-outline-secondary bi bi-eye-fill"
+                                            title="Ver mais">
+                                        </a>
                                         <button type="button"
                                            @click="deleteCarro(carro.id)"
-                                           class="btn btn-outline-danger bi bi-trash-fill"></button>
+                                           class="btn btn-outline-danger bi bi-trash-fill"
+                                            title="Excluir">
+                                        </button>
                                         <button type="button"
                                            @click="editCarro(carro.id)"
                                            data-toggle="modal"
                                            data-target="#staticBackdrop"
-                                           class="btn btn-outline-dark bi bi-pencil-fill"></button>
+                                           class="btn btn-outline-dark bi bi-pencil-fill"
+                                            title="Editar">
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -169,11 +189,23 @@
                                 <label>Preço</label>
                                 <input type="text" class="form-control" v-model="editPreco">
                             </div>
+                            <div class="form-group">
+                                <label>Descrição</label>
+                                <textarea type="text" class="form-control" v-model="editDescricao"></textarea>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="submit" @click.prevent="updateCarro" data-dismiss="modal" class="btn btn-primary">Atualizar</button>
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal">Fechar</button>
+                        <button
+                            type="submit"
+                            data-dismiss="modal"
+                            @click.prevent="updateCarro"
+                            class="btn btn-primary"
+                            onclick="alert('Veículo atualizado!')">Atualizar</button>
                     </div>
                 </div>
             </div>
@@ -193,12 +225,15 @@ export default {
             placa: '',
             categoria: '',
             preco: '',
+            descricao: '',
+            image_path: '',
             editMarca: '',
             editModelo: '',
             editAno: '',
             editPlaca: '',
             editCategoria: '',
-            editPreco: ''
+            editPreco: '',
+            editDescricao: ''
         }
     },
     mounted() {
@@ -212,7 +247,9 @@ export default {
                 ano: this.ano,
                 placa: this.placa,
                 categoria: this.categoria,
-                preco: this.preco
+                preco: this.preco,
+                descricao: this.descricao,
+                image_path: this.image_path
             }).then(response => {
                 this.marca = '';
                 this.modelo = '';
@@ -220,6 +257,8 @@ export default {
                 this.placa = '';
                 this.categoria = '';
                 this.preco = '';
+                this.descricao = '';
+                this.image_path = '';
                 this.getResults();
             });
         },
@@ -239,6 +278,7 @@ export default {
                     this.editPlaca = response.data.placa;
                     this.editCategoria = response.data.categoria;
                     this.editPreco = response.data.preco;
+                    this.editDescricao = response.data.descricao;
                 });
         },
         updateCarro() {
@@ -249,7 +289,8 @@ export default {
                ano: this.editAno,
                placa: this.editPlaca,
                categoria: this.editCategoria,
-               preco: this.editPreco
+               preco: this.editPreco,
+               descricao: this.editDescricao
             })
             .then(response => {
                 this.getResults();
