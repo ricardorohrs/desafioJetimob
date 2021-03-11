@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Carro;
+use Intervention\Image\Facades\Image;
 
 class CarroController extends Controller
 {
-    public function salva_carro()
+
+    public function salva_carro(Request $request)
     {
         $this->validarDados();
 
@@ -20,6 +22,7 @@ class CarroController extends Controller
         $carro->preco = request()->preco;
         $carro->descricao = request()->descricao;
         $carro->image = request()->image;
+
         $carro->save();
     }
 

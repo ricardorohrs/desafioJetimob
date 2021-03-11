@@ -8,6 +8,6 @@
             </div>
         @endif
 
-        <create-component></create-component>
+        <relatorios></relatorios>
     </div>
 @endsection

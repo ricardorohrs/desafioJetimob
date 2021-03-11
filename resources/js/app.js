@@ -13,15 +13,15 @@ window.Vue = require('vue').default;
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
  *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ * Eg. ./components/Relatorios.vue -> <example-component></example-component>
  */
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('create-component', require('./components/CreateComponent.vue').default);
-Vue.component('veiculo-component', require('./components/VeiculoComponent.vue').default);
+Vue.component('relatorios', require('./components/Relatorios.vue').default);
+Vue.component('veiculos', require('./components/Veiculos.vue').default);
+Vue.component('dados-veiculo', require('./components/DadosVeiculo.vue').default);
 
 Vue.component('pagination', require('laravel-vue-pagination'));
 
@@ -30,6 +30,16 @@ Vue.component('pagination', require('laravel-vue-pagination'));
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+/*import Vue from "vue";
+import App from "./App.vue";
+
+Vue.config.productionTip = false;
+
+new Vue({
+    render: h => h(App)
+}).$mount("#app");*/
+
 
 const app = new Vue({
     el: '#app',

@@ -1,11 +1,11 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mt-5">
 
-                <div class="row justify-content-between">
+                <div class="row justify-content-start">
                     <ul>
-                        <div class="cadastrar" style="margin-left: -40px">
+                        <div class="cadastrar">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#criarVeiculo">
                                 Cadastrar Veículo
                             </button>
@@ -70,8 +70,8 @@
                                             <textarea type="text" class="form-control" v-model="descricao"></textarea>
                                         </div>
                                         <div class="form-group file">
-                                            <label for="formFileMultiple">Imagens</label>
-                                            <input class="form-control-file" type="file" name="image" id="formFileMultiple" multiple>
+                                            <label for="image" name="image">Imagens</label>
+                                            <input class="form-control-file" type="file" name="image" id="image" multiple>
                                         </div>
                                         <div class="modal-footer">
                                             <button
@@ -97,7 +97,7 @@
                 <div class="card">
                     <div class="card-header">Veículos cadastrados</div>
 
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -124,16 +124,17 @@
                                             title="Ver mais">
                                         </a>
                                         <button type="button"
-                                           @click="deleteCarro(carro.id)"
-                                           class="btn btn-outline-danger bi bi-trash-fill"
-                                           title="Excluir">
+                                                @click="editCarro(carro.id)"
+                                                data-toggle="modal"
+                                                data-target="#staticBackdrop"
+                                                class="btn btn-outline-dark bi bi-pencil-fill"
+                                                title="Editar">
                                         </button>
                                         <button type="button"
-                                           @click="editCarro(carro.id)"
-                                           data-toggle="modal"
-                                           data-target="#staticBackdrop"
-                                           class="btn btn-outline-dark bi bi-pencil-fill"
-                                           title="Editar">
+                                           @click="deleteCarro(carro.id)"
+                                           class="btn btn-outline-danger bi bi-trash-fill"
+                                           onclick="alert('Veículo excluído com sucesso!')"
+                                           title="Excluir">
                                         </button>
                                     </td>
                                 </tr>
@@ -152,7 +153,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Editar veículo  #{{ this.id }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -299,7 +300,7 @@ export default {
                 .then(response => {
                     this.getResults();
                 });
-        }
+        },
     }
 }
 </script>

@@ -570,6 +570,8 @@ pre code {
 .row {
   display: flex;
   flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
 .no-gutters {
@@ -10000,6 +10002,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+body {
+    font-family: "Roboto";
+}
+
 .footer {
     bottom: 0;
     width: 100%;
@@ -10013,5 +10019,11 @@ h3 {
 #search {
     width: 300px;
     margin-right: 5px;
+}
+
+.grow:hover
+{
+    transform: scale(1.3);
+    transition-duration: 0.5s;
 }
 

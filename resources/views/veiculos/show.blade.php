@@ -17,22 +17,22 @@
         </div>
         <br>
         <div class="row principais">
-            <div class="col-6 col-sm-3">
+            <div class="col-6 col-sm-3 grow ">
                 <span>Ano</span>
                 <br>
                 <strong>{{ $carro->ano }}</strong>
             </div>
-            <div class="col-6 col-sm-3">
+            <div class="col-6 col-sm-3 grow">
                 <span>Placa</span>
                 <br>
                 <strong>{{ $carro->placa }}</strong>
             </div>
-            <div class="col-6 col-sm-3">
+            <div class="col-6 col-sm-3 grow">
                 <span>Categoria</span>
                 <br>
                 <strong>{{ $carro->categoria }}</strong>
             </div>
-            <div class="col-6 col-sm-3">
+            <div class="col-6 col-sm-3 grow">
                 <span>Preço</span>
                 <br>
                 <strong>{{ $carro->preco }}</strong>

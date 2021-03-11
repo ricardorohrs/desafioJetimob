@@ -15,12 +15,12 @@ use App\Http\Controllers;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('relatorios');
 })->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/veiculos', [App\Http\Controllers\HomeController::class, 'index'])->name('veiculos');
 
 Route::post('salva_carro', 'App\Http\Controllers\CarroController@salva_carro');
 Route::get('all_cars', 'App\Http\Controllers\CarroController@all_cars');

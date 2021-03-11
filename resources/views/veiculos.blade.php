@@ -8,6 +8,6 @@
             </div>
         @endif
 
-        <example-component></example-component>
+        <veiculos></veiculos>
     </div>
 @endsection
