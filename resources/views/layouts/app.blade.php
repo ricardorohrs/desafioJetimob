@@ -23,10 +23,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <i class="bi bi-cone-striped"></i><strong>{{ __('   Carro e CIA   ') }}</strong><i class="bi bi-cone-striped"></i>
+                <a class="navbar-brand" href="{{ url('/veiculos ') }}">
+                    <i class="bi bi-cone-striped text-success"></i><strong>{{ __('   Carro e CIA   ') }}</strong><i class="bi bi-cone-striped text-success"></i>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,6 +45,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ Request::path() === 'veiculos' ? 'font-weight-bolder uppercase' : '' }}" href="/veiculos">Veículos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::path() === 'historico' ? 'font-weight-bolder uppercase' : '' }}" href="/historico">Histórico</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest
@@ -69,7 +72,7 @@
                                     <a class="dropdown-item" href="{{ route('login') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }} <i class="bi bi-cone-striped" style="float: right"></i>
+                                        {{ __('Logout') }} <i class="bi bi-cone-striped text-success" style="float: right"></i>
 
                                     </a>
 
@@ -93,7 +96,7 @@
         <br>
         <footer class="footer">
             <hr>
-            <span>Desenvolvido por Ricardo Röhrs <i class="bi bi-cone-striped"></i> Jetimob</span>
+            <span>Desenvolvido por Ricardo Röhrs <i class="bi bi-cone-striped text-success"></i> Jetimob</span>
         </footer>
     </div>
 </body>

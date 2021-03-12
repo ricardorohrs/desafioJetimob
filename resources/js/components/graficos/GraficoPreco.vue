@@ -20,8 +20,8 @@ export default {
                 datasets: [
                     {
                         label: "Quantidade por preço",
-                        backgroundColor: "#f87979",
-                        data: [40, 20, 12, 39, 10, 40, 39, 40, 20, 12, 11]
+                        backgroundColor: '#7DCC48',
+                        data: [20, 12, 15, 40, 20, 40, 20, 12, 11]
                     }
                 ]
             },
@@ -30,7 +30,7 @@ export default {
                 maintainAspectRatio: false,
                 title: {
                     display: true,
-                    text: "Preço"
+                    text: "PREÇO"
                 }
             }
         );

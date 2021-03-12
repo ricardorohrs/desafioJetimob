@@ -19,8 +19,4 @@ class Carro extends Model
         'categoria',
         'image'
     ];
-
-    public function path() {
-        return route('veiculos.show', $this);
-    }
 }

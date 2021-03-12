@@ -4,27 +4,13 @@ import { Pie } from "vue-chartjs";
 export default {
     extends: Pie,
     mounted() {
-        this.gradient = this.$refs.canvas
-            .getContext("2d")
-            .createLinearGradient(0, 0, 0, 450);
-        this.gradient2 = this.$refs.canvas
-            .getContext("2d")
-            .createLinearGradient(0, 0, 0, 450);
-
-        this.gradient.addColorStop(0, "rgba(255, 0,0, 0.5)");
-        this.gradient.addColorStop(0.5, "rgba(255, 0, 0, 0.25)");
-        this.gradient.addColorStop(1, "rgba(255, 0, 0, 0)");
-
-        this.gradient2.addColorStop(0, "rgba(0, 231, 255, 0.9)");
-        this.gradient2.addColorStop(0.5, "rgba(0, 231, 255, 0.25)");
-        this.gradient2.addColorStop(1, "rgba(0, 231, 255, 0)");
         this.renderChart(
             {
                 labels: ["Novo", "Seminovo", "Usado"],
                 datasets: [
                     {
-                        backgroundColor: [this.gradient, this.gradient2, "#00D8FF"],
-                        data: [40, 20, 10]
+                        backgroundColor: ['#7DCC48', '#657F53', '#CAFFA7'],
+                        data: [40, 30, 30]
                     }
                 ]
             },
@@ -33,10 +19,13 @@ export default {
                 maintainAspectRatio: false,
                 title: {
                     display: true,
-                    text: "Categoria"
+                    text: "CATEGORIA"
                 }
             }
         );
+    },
+    created() {
+        axios.get('relatorios').then((res) => console.log(res.data));
     }
 };
 </script>

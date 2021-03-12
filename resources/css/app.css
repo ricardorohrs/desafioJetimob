@@ -2,6 +2,18 @@ body {
     font-family: "Roboto";
 }
 
+h1:hover{
+    color: #657F53;
+}
+
+h2:hover{
+    color: #7DCC48;
+}
+
+navbar li:hover {
+    color: #7DCC48;
+}
+
 .footer {
     bottom: 0;
     width: 100%;

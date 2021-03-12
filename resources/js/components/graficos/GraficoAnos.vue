@@ -24,8 +24,8 @@ export default {
                         label: "Quantidade por ano",
                         data: [2, 10, 5, 9, 0, 6, 12, 6, 1, 15, 7],
                         backgroundColor: "transparent",
-                        borderColor: "rgba(1, 116, 188, 0.50)",
-                        pointBackgroundColor: "rgba(171, 71, 188, 1)"
+                        borderColor: "#9CFF5A",
+                        pointBackgroundColor: "#CAFFA7"
                     }
                 ]
             },
@@ -34,7 +34,7 @@ export default {
                 maintainAspectRatio: false,
                 title: {
                     display: true,
-                    text: "Anos"
+                    text: "ANOS"
                 }
             }
         );

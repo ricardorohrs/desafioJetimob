@@ -18,11 +18,18 @@ class CreateCarrosTable extends Migration
             $table->string('marca');
             $table->string('modelo');
             $table->year('ano');
-            $table->string('placa')->nullable()->default('Não informado');
             $table->enum('categoria', ['Novo', 'Seminovo', 'Usado']);
-            $table->double('preco');
+            $table->decimal('preco');
+            $table->string('placa')->nullable()->default('Não informado');
             $table->text('descricao')->nullable()->default('Não informado');
-            $table->string('image')->nullable();
+            $table->string('image')->nullable()->default('Não informado');
+            $table->string('cor')->nullable()->default('Não informado');
+            $table->double('quilometragem')->nullable();
+            $table->enum('cambio', ['Manual', 'Automático'])->nullable();
+            $table->enum('combustivel', ['Gasolina', 'Etanol', 'Diesel', 'GNV', 'Flex'])->nullable();
+            $table->enum('portas', ['2', '4'])->nullable();
+            $table->decimal('motor')->nullable();
+            $table->dateTime('venda')->nullable();
             $table->timestamps();
         });
     }

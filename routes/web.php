@@ -20,12 +20,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/veiculos', [App\Http\Controllers\HomeController::class, 'index'])->name('veiculos');
+Route::get('/veiculos', 'App\Http\Controllers\HomeController@index');
 
-Route::post('salva_carro', 'App\Http\Controllers\CarroController@salva_carro');
-Route::get('all_cars', 'App\Http\Controllers\CarroController@all_cars');
-Route::get('edit_carro/{id}', 'App\Http\Controllers\CarroController@edit_carro');
-Route::put('update_carro', 'App\Http\Controllers\CarroController@update_carro');
-Route::delete('delete_carro/{id}', 'App\Http\Controllers\CarroController@delete_carro');
+Route::post('store', 'App\Http\Controllers\CarroController@store');
+Route::get('index', 'App\Http\Controllers\CarroController@index');
+Route::get('edit/{id}', 'App\Http\Controllers\CarroController@edit');
+Route::put('update', 'App\Http\Controllers\CarroController@update');
+Route::delete('destroy/{id}', 'App\Http\Controllers\CarroController@destroy');
 
-Route::get('/veiculos/{carro}', 'App\Http\Controllers\VeiculoIdController@show');
+Route::get('/veiculos/{carro}', 'App\Http\Controllers\CarroController@show');
+Route::get('marcaVenda/{id}', 'App\Http\Controllers\CarroController@marcaVenda');
+
+Route::get('/historico', function () {
+    return view('historico');
+});
+
+Route::get('/relatorio', 'App\Http\Controllers\RelatorioController@index');
