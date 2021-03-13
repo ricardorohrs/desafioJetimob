@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Carro;
-
-class CarroController extends Controller
-{
+use Illuminate\Support\Facades\DB;
+class CarroController extends Controller {
 
     public function store (Request $request) {
 
@@ -20,6 +19,7 @@ class CarroController extends Controller
         $carro->placa = $request->placa;
         $carro->categoria = $request->categoria;
         $carro->preco = $request->preco;
+        $carro->descricao = $request->descricao;
         $carro->cor = $request->cor;
         $carro->quilometragem = $request->quilometragem;
         $carro->cambio = $request->cambio;
@@ -27,6 +27,24 @@ class CarroController extends Controller
         $carro->portas = $request->portas;
         $carro->motor = $request->motor;
         $carro->venda = $request->venda;
+
+        if ($carro->descricao == '') {
+            $carro->descricao = "Não informado";
+        } elseif ($carro->cor == '') {
+            $carro->cor = "Não informado";
+        } elseif ($carro->cambio == '') {
+            $carro->cambio = "Não informado";
+        } elseif ($carro->combustivel == '') {
+            $carro->combustivel = "Não informado";
+        } elseif ($carro->quilometragem == '') {
+            $carro->quilometragem = "Não informado";
+        } elseif ($carro->portas == '') {
+            $carro->portas = "Não informado";
+        } elseif ($carro->motor == '') {
+            $carro->motor = "Não informado";
+        } elseif ($carro->placa == '') {
+            $carro->placa = "Não informado";
+        }
 
         $carro->save();
     }
@@ -74,6 +92,12 @@ class CarroController extends Controller
             'ano' => 'required|integer|min:0|max:2021',
             'categoria' => 'required',
             'preco' => 'required',
+            'quilometragem' => 'required',
+            'cor' => 'required',
+            'portas' => 'required',
+            'motor' => 'required',
+            'cambio' => 'required',
+            'combustivel' => 'required',
         ]), function () {
             if (request()->hasFile('image')) {
                 request()->validate([
@@ -88,4 +112,10 @@ class CarroController extends Controller
         $carro->venda = Carbon::now();
         $carro->update();
     }
+
+    public function search(Request $request) {
+        $carros = DB::table('carros')->where('marca', 'like', '%' . $request->get('keywords') . '%')->get();
+        return response()->json($carros);
+    }
+
 }

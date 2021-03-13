@@ -35,4 +35,6 @@ Route::get('/historico', function () {
     return view('historico');
 });
 
-Route::get('/relatorio', 'App\Http\Controllers\RelatorioController@index');
+Route::get('/relatorios/{carros}', 'App\Http\Controllers\RelatorioController@index');
+
+Route::get('/search', 'App\Http\Controllers\CarroController@search');

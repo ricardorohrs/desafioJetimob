@@ -16,7 +16,13 @@ class Carro extends Model
         'placa',
         'categoria',
         'preco',
-        'categoria',
-        'image'
+        'descricao',
+        'image',
+        'portas',
+        'motor',
+        'cambio',
+        'quilometragem',
+        'combustivel',
+        'cor'
     ];
 }

@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="icon" href="https://i.pinimg.com/originals/2a/79/11/2a791199ded2304794c89ddd631b945d.png" sizes="16x16" type="image/png"/>
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -24,7 +26,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/veiculos ') }}">
                     <i class="bi bi-cone-striped text-success"></i><strong>{{ __('   Carro e CIA   ') }}</strong><i class="bi bi-cone-striped text-success"></i>
                 </a>
@@ -33,15 +35,15 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    <!-- Lado esquerdo do menu -->
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    <!-- Lado direito do menu -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::path() === '/' ? 'font-weight-bolder' : '' }}" href="/">Relatórios</a>
+                            <a class="nav-link {{ Request::path() == 'relatorios/undefined' ? 'font-weight-bolder' : '' }}" :href="'/relatorios/' + carros">Relatórios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ Request::path() === 'veiculos' ? 'font-weight-bolder uppercase' : '' }}" href="/veiculos">Veículos</a>
@@ -49,15 +51,14 @@
                         <li class="nav-item">
                             <a class="nav-link {{ Request::path() === 'historico' ? 'font-weight-bolder uppercase' : '' }}" href="/historico">Histórico</a>
                         </li>
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link {{ Request::path() === '/login' ? 'font-weight-bolder' : '' }}" href="/login">{{ __('Login') }}</a>
                                 </li>
-                            @endif
 
-                            @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link {{ Request::path() === '/register' ? 'font-weight-bolder' : '' }}" href="/register">{{ __('Registrar') }}</a>
                                 </li>
@@ -73,7 +74,6 @@
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }} <i class="bi bi-cone-striped text-success" style="float: right"></i>
-
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -82,6 +82,7 @@
                                 </div>
                             </li>
                         @endguest
+
                     </ul>
                 </div>
             </div>
@@ -93,11 +94,14 @@
 
     </div>
     <div>
+
         <br>
+
         <footer class="footer">
             <hr>
             <span>Desenvolvido por Ricardo Röhrs <i class="bi bi-cone-striped text-success"></i> Jetimob</span>
         </footer>
+
     </div>
 </body>
 </html>

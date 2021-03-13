@@ -8,6 +8,36 @@
             </div>
         @endif
 
-        <relatorios></relatorios>
+        <relatorios
+            novo="{{$contNovo}}" seminovo="{{$contSemi}}" usado="{{$contUsado}}"
+            gasolina="{{$contGasol}}" etanol="{{$contEtanol}}" diesel="{{$contDiesel}}" flex="{{$contFlex}}" gnv="{{$contGNV}}"
+            automatico="{{$contAutom}}" manual="{{$contManual}}"
+        ></relatorios>
+
     </div>
+
+<script>
+    export default {
+        data () {
+            return {
+                categoria: {
+                    novo: $contNovo,
+                    seminovo: $contSemi,
+                    usado: $contUsado,
+                },
+                combustivel: {
+                    gasolina: $contGasol,
+                    etanol: $contEtanol,
+                    diesel: $contDiesel,
+                    flex: $contFlex,
+                    gnv: $contGNV,
+                },
+                cambio: {
+                    automatico: $contAutom,
+                    manual: $contManual,
+                }
+            }
+        }
+    }
+</script>
 @endsection

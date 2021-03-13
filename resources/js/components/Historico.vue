@@ -6,7 +6,7 @@
                     <div class="card-header">Histórico</div>
 
                     <div class="card-body">
-
+                        Inserir histórico.
                     </div>
                 </div>
             </div>
