@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Jetimob') }}</title>
+    <title>Carro e CIA - @yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -27,9 +27,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
+
                 <a class="navbar-brand" href="{{ url('/veiculos ') }}">
                     <i class="bi bi-cone-striped text-success"></i><strong>{{ __('   Carro e CIA   ') }}</strong><i class="bi bi-cone-striped text-success"></i>
                 </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -42,25 +44,28 @@
 
                     <!-- Lado direito do menu -->
                     <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::path() === 'veiculos' ? 'font-weight-bolder' : '' }}" href="/veiculos">Veículos</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link {{ Request::path() == 'relatorios/undefined' ? 'font-weight-bolder' : '' }}" :href="'/relatorios/' + carros">Relatórios</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::path() === 'veiculos' ? 'font-weight-bolder uppercase' : '' }}" href="/veiculos">Veículos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::path() === 'historico' ? 'font-weight-bolder uppercase' : '' }}" href="/historico">Histórico</a>
+                            <a class="nav-link {{ Request::path() === 'historico' ? 'font-weight-bolder' : '' }}" href="/historico">Histórico</a>
                         </li>
 
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::path() === '/login' ? 'font-weight-bolder' : '' }}" href="/login">{{ __('Login') }}</a>
+                                    <a class="nav-link {{ Request::path() === 'login' ? 'font-weight-bolder' : '' }}" href="/login">{{ __('Login') }}</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::path() === '/register' ? 'font-weight-bolder' : '' }}" href="/register">{{ __('Registrar') }}</a>
+                                    <a class="nav-link {{ Request::path() === 'register' ? 'font-weight-bolder' : '' }}" href="/register">{{ __('Registrar') }}</a>
                                 </li>
                             @endif
                         @else
@@ -93,15 +98,13 @@
         </main>
 
     </div>
-    <div>
 
         <br>
 
-        <footer class="footer">
-            <hr>
-            <span>Desenvolvido por Ricardo Röhrs <i class="bi bi-cone-striped text-success"></i> Jetimob</span>
-        </footer>
+    <footer class="footer">
+        <hr>
+        <span>Desenvolvido por Ricardo Röhrs <i class="bi bi-cone-striped text-success"></i> Jetimob</span>
+    </footer>
 
-    </div>
 </body>
 </html>

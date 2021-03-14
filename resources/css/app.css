@@ -3,6 +3,10 @@ body {
     width: auto;
 }
 
+#app {
+    min-height: calc(100vh - 80px);
+}
+
 h1:hover{
     color: #657F53;
 }
@@ -15,7 +19,7 @@ navbar li:hover {
     color: #7DCC48;
 }
 
-.footer {
+footer {
     bottom: 0;
     width: 100%;
     text-align: center;

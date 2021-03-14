@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mt-3">
+            <div class="col-md-12 mt-2">
 
                 <div class="row justify-content-start">
                     <div class="cadastrar">
@@ -109,7 +109,6 @@
                                             <option>Etanol</option>
                                             <option>Diesel</option>
                                             <option>Flex</option>
-                                            <option>GNV</option>
                                         </select>
                                     </div>
 
@@ -300,7 +299,6 @@
                                     <option>Etanol</option>
                                     <option>Diesel</option>
                                     <option>Flex</option>
-                                    <option>GNV</option>
                                 </select>
                             </div>
 

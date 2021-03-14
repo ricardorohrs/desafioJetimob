@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,26 +14,25 @@ use App\Http\Controllers;
 */
 
 Route::get('/', function () {
-    return view('relatorios');
+    return view('veiculos');
 })->middleware('auth');
 
 Auth::routes();
 
-Route::get('/veiculos', 'App\Http\Controllers\HomeController@index');
-
-Route::post('store', 'App\Http\Controllers\CarroController@store');
 Route::get('index', 'App\Http\Controllers\CarroController@index');
+Route::post('store', 'App\Http\Controllers\CarroController@store');
 Route::get('edit/{id}', 'App\Http\Controllers\CarroController@edit');
 Route::put('update', 'App\Http\Controllers\CarroController@update');
 Route::delete('destroy/{id}', 'App\Http\Controllers\CarroController@destroy');
 
+Route::get('/veiculos', 'App\Http\Controllers\HomeController@index');
 Route::get('/veiculos/{carro}', 'App\Http\Controllers\CarroController@show');
+Route::get('/search', 'App\Http\Controllers\CarroController@search');
 Route::get('marcaVenda/{id}', 'App\Http\Controllers\CarroController@marcaVenda');
+Route::get('/relatorios/{carros}', 'App\Http\Controllers\RelatorioController@index')->middleware('auth');;
 
 Route::get('/historico', function () {
     return view('historico');
-});
+})->middleware('auth');
 
-Route::get('/relatorios/{carros}', 'App\Http\Controllers\RelatorioController@index');
 
-Route::get('/search', 'App\Http\Controllers\CarroController@search');

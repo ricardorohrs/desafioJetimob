@@ -32,14 +32,8 @@ class CarroController extends Controller {
             $carro->descricao = "Não informado";
         } elseif ($carro->cor == '') {
             $carro->cor = "Não informado";
-        } elseif ($carro->cambio == '') {
-            $carro->cambio = "Não informado";
-        } elseif ($carro->combustivel == '') {
-            $carro->combustivel = "Não informado";
         } elseif ($carro->quilometragem == '') {
             $carro->quilometragem = "Não informado";
-        } elseif ($carro->portas == '') {
-            $carro->portas = "Não informado";
         } elseif ($carro->motor == '') {
             $carro->motor = "Não informado";
         } elseif ($carro->placa == '') {
@@ -70,6 +64,13 @@ class CarroController extends Controller {
         $carro->placa = $request->placa;
         $carro->categoria = $request->categoria;
         $carro->preco = $request->preco;
+        $carro->cor = $request->cor;
+        $carro->quilometragem = $request->quilometragem;
+        $carro->cambio = $request->cambio;
+        $carro->combustivel = $request->combustivel;
+        $carro->portas = $request->portas;
+        $carro->motor = $request->motor;
+        $carro->venda = $request->venda;
         $carro->update();
     }
 

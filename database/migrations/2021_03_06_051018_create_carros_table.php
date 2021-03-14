@@ -23,12 +23,12 @@ class CreateCarrosTable extends Migration
             $table->string('placa')->nullable()->default('Não informado');
             $table->text('descricao')->nullable()->default('Não informado');
             $table->string('image')->nullable()->default('Não informado');
-            $table->string('cor');
-            $table->double('quilometragem');
+            $table->string('cor')->nullable();
+            $table->double('quilometragem')->nullable();
             $table->enum('cambio', ['Manual', 'Automático']);
-            $table->enum('combustivel', ['Gasolina', 'Etanol', 'Diesel', 'GNV', 'Flex']);
+            $table->enum('combustivel', ['Gasolina', 'Etanol', 'Diesel', 'Flex']);
             $table->enum('portas', ['2', '4']);
-            $table->decimal('motor');
+            $table->decimal('motor')->nullable();
             $table->dateTime('venda')->nullable();
             $table->timestamps();
         });
