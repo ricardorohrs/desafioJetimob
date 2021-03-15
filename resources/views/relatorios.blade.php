@@ -22,33 +22,7 @@
 
 <script>
     export default {
-        data () {
-            return {
-                categoria: {
-                    novo: $contNovo,
-                    seminovo: $contSemi,
-                    usado: $contUsado,
-                },
-                combustivel: {
-                    gasolina: $contGasol,
-                    etanol: $contEtanol,
-                    diesel: $contDiesel,
-                    flex: $contFlex,
-                },
-                cambio: {
-                    automatico: $contAutom,
-                    manual: $contManual,
-                },
-                vendas: {
-                    vendido: $contVendido,
-                    disponivel: $contDisponivel,
-                },
-                portas: {
-                    dois: $contPortaDois,
-                    quatro: $contPortaQuatro,
-                }
-            }
-        }
+
     }
 </script>
 @endsection

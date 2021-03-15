@@ -8,6 +8,12 @@ use App\Models\Carro;
 use Illuminate\Support\Facades\DB;
 class CarroController extends Controller {
 
+    public function index () {
+
+        $carros = Carro::paginate(10);
+        return response()->json($carros);
+    }
+
     public function store (Request $request) {
 
         $this->validarDados();
@@ -28,12 +34,6 @@ class CarroController extends Controller {
         $carro->motor = $request->motor;
 
         $carro->save();
-    }
-
-    public function index () {
-
-        $carros = Carro::paginate(10);
-        return response()->json($carros);
     }
 
     public function edit ($id) {

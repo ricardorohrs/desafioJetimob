@@ -98,7 +98,7 @@
         <br>
 
     <footer class="footer">
-        <hr>
+        <hr class="shadow-sm">
         <span>Desenvolvido por Ricardo Röhrs <i class="bi bi-cone-striped text-success"></i> Jetimob</span>
     </footer>
 

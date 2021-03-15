@@ -2546,6 +2546,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2588,7 +2589,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   watch: {
-    keywords: function keywords(after, before) {
+    keywords: function keywords() {
       this.fetch();
     }
   },
@@ -2707,7 +2708,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         return _this7.results = response.data;
-      })["catch"](function (error) {});
+      });
     },
     relatorios: function relatorios() {
       axios.get('/relatorios');
@@ -78077,7 +78078,9 @@ var render = function() {
                 _c("div", { staticClass: "card-body" }, [
                   _c("form", { attrs: { enctype: "multipart/form-data" } }, [
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Marca")]),
+                      _c("label", { attrs: { for: "marca" } }, [
+                        _vm._v("Marca")
+                      ]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -78103,7 +78106,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Modelo")]),
+                      _c("label", { attrs: { for: "modelo" } }, [
+                        _vm._v("Modelo")
+                      ]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -78115,7 +78120,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text" },
+                        attrs: { id: "modelo", type: "text" },
                         domProps: { value: _vm.modelo },
                         on: {
                           input: function($event) {
@@ -78129,7 +78134,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Ano")]),
+                      _c("label", { attrs: { for: "ano" } }, [_vm._v("Ano")]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -78141,7 +78146,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "number" },
+                        attrs: { id: "ano", type: "number" },
                         domProps: { value: _vm.ano },
                         on: {
                           input: function($event) {
@@ -78155,7 +78160,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Placa")]),
+                      _c("label", { attrs: { for: "placa" } }, [
+                        _vm._v("Placa")
+                      ]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -78167,7 +78174,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "XXX-0000" },
+                        attrs: {
+                          id: "placa",
+                          type: "text",
+                          placeholder: "XXX-0000"
+                        },
                         domProps: { value: _vm.placa },
                         on: {
                           input: function($event) {
@@ -78181,7 +78192,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Categoria")]),
+                      _c("label", { attrs: { for: "categoria" } }, [
+                        _vm._v("Categoria")
+                      ]),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -78195,6 +78208,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
+                          attrs: { id: "categoria" },
                           on: {
                             change: function($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -78221,7 +78235,7 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("label", [_vm._v("Preço")]),
+                    _c("label", { attrs: { for: "preco" } }, [_vm._v("Preço")]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group input-group mb-3" }, [
                       _c("span", { staticClass: "input-group-text" }, [
@@ -78238,7 +78252,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text" },
+                        attrs: { id: "preco", type: "text" },
                         domProps: { value: _vm.preco },
                         on: {
                           input: function($event) {
@@ -78256,7 +78270,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Câmbio")]),
+                      _c("label", { attrs: { for: "cambio" } }, [
+                        _vm._v("Câmbio")
+                      ]),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -78270,6 +78286,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
+                          attrs: { id: "cambio" },
                           on: {
                             change: function($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -78294,7 +78311,9 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("label", [_vm._v("Quilometragem")]),
+                    _c("label", { attrs: { for: "quilometragem" } }, [
+                      _vm._v("Quilometragem")
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group input-group mb-3" }, [
                       _c("input", {
@@ -78307,7 +78326,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text" },
+                        attrs: { id: "quilometragem", type: "text" },
                         domProps: { value: _vm.quilometragem },
                         on: {
                           input: function($event) {
@@ -78325,7 +78344,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Motor")]),
+                      _c("label", { attrs: { for: "motor" } }, [
+                        _vm._v("Motor")
+                      ]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -78337,7 +78358,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text" },
+                        attrs: { id: "motor", type: "text" },
                         domProps: { value: _vm.motor },
                         on: {
                           input: function($event) {
@@ -78351,7 +78372,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Portas")]),
+                      _c("label", { attrs: { for: "portas" } }, [
+                        _vm._v("Portas")
+                      ]),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -78365,6 +78388,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
+                          attrs: { id: "portas" },
                           on: {
                             change: function($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -78390,7 +78414,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Combustível")]),
+                      _c("label", { attrs: { for: "combustivel" } }, [
+                        _vm._v("Combustível")
+                      ]),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -78404,6 +78430,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
+                          attrs: { id: "combustivel" },
                           on: {
                             change: function($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -78433,7 +78460,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Cor")]),
+                      _c("label", { attrs: { for: "cor" } }, [_vm._v("Cor")]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -78445,7 +78472,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text" },
+                        attrs: { id: "cor", type: "text" },
                         domProps: { value: _vm.cor },
                         on: {
                           input: function($event) {
@@ -78459,7 +78486,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Descrição")]),
+                      _c("label", { attrs: { for: "descricao" } }, [
+                        _vm._v("Descrição")
+                      ]),
                       _vm._v(" "),
                       _c("textarea", {
                         directives: [
@@ -78471,7 +78500,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text" },
+                        attrs: { id: "descricao", type: "text" },
                         domProps: { value: _vm.descricao },
                         on: {
                           input: function($event) {
@@ -78667,7 +78696,9 @@ var render = function() {
             _c("div", { staticClass: "modal-body" }, [
               _c("form", [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Marca")]),
+                  _c("label", { attrs: { for: "editMarca" } }, [
+                    _vm._v("Marca")
+                  ]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -78679,7 +78710,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "text", name: "marca" },
+                    attrs: { id: "editMarca", type: "text", name: "marca" },
                     domProps: { value: _vm.editMarca },
                     on: {
                       input: function($event) {
@@ -78693,7 +78724,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Modelo")]),
+                  _c("label", { attrs: { for: "editModelo" } }, [
+                    _vm._v("Modelo")
+                  ]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -78705,7 +78738,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "text" },
+                    attrs: { id: "editModelo", type: "text" },
                     domProps: { value: _vm.editModelo },
                     on: {
                       input: function($event) {
@@ -78719,7 +78752,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Ano")]),
+                  _c("label", { attrs: { for: "editAno" } }, [_vm._v("Ano")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -78731,7 +78764,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "number" },
+                    attrs: { id: "editAno", type: "number" },
                     domProps: { value: _vm.editAno },
                     on: {
                       input: function($event) {
@@ -78745,7 +78778,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Placa")]),
+                  _c("label", { attrs: { for: "editPlaca" } }, [
+                    _vm._v("Placa")
+                  ]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -78757,7 +78792,11 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "text", placeholder: "XXX-0000" },
+                    attrs: {
+                      id: "editPlaca",
+                      type: "text",
+                      placeholder: "XXX-0000"
+                    },
                     domProps: { value: _vm.editPlaca },
                     on: {
                       input: function($event) {
@@ -78771,7 +78810,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Categoria")]),
+                  _c("label", { attrs: { for: "editCategoria" } }, [
+                    _vm._v("Categoria")
+                  ]),
                   _vm._v(" "),
                   _c(
                     "select",
@@ -78785,6 +78826,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
+                      attrs: { id: "editCategoria" },
                       on: {
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -78811,7 +78853,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("label", [_vm._v("Preço")]),
+                _c("label", { attrs: { for: "editPreco" } }, [_vm._v("Preço")]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group input-group mb-3" }, [
                   _c("span", { staticClass: "input-group-text" }, [
@@ -78828,7 +78870,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "text" },
+                    attrs: { id: "editPreco", type: "text" },
                     domProps: { value: _vm.editPreco },
                     on: {
                       input: function($event) {
@@ -78842,7 +78884,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Câmbio")]),
+                  _c("label", { attrs: { for: "editCambio" } }, [
+                    _vm._v("Câmbio")
+                  ]),
                   _vm._v(" "),
                   _c(
                     "select",
@@ -78856,6 +78900,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
+                      attrs: { id: "editCambio" },
                       on: {
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -78880,7 +78925,9 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("label", [_vm._v("Quilometragem")]),
+                _c("label", { attrs: { for: "editQuilometragem" } }, [
+                  _vm._v("Quilometragem")
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group input-group mb-3" }, [
                   _c("input", {
@@ -78893,7 +78940,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "text" },
+                    attrs: { id: "editQuilometragem", type: "text" },
                     domProps: { value: _vm.editQuilometragem },
                     on: {
                       input: function($event) {
@@ -78911,7 +78958,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Motor")]),
+                  _c("label", { attrs: { for: "editMotor" } }, [
+                    _vm._v("Motor")
+                  ]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -78923,7 +78972,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "text" },
+                    attrs: { id: "editMotor", type: "text" },
                     domProps: { value: _vm.editMotor },
                     on: {
                       input: function($event) {
@@ -78937,7 +78986,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Portas")]),
+                  _c("label", { attrs: { for: "editPortas" } }, [
+                    _vm._v("Portas")
+                  ]),
                   _vm._v(" "),
                   _c(
                     "select",
@@ -78951,6 +79002,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
+                      attrs: { id: "editPortas" },
                       on: {
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -78976,7 +79028,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Combustível")]),
+                  _c("label", { attrs: { for: "editCombustivel" } }, [
+                    _vm._v("Combustível")
+                  ]),
                   _vm._v(" "),
                   _c(
                     "select",
@@ -78990,6 +79044,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
+                      attrs: { id: "editCombustivel" },
                       on: {
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -79019,7 +79074,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Cor")]),
+                  _c("label", { attrs: { for: "editCor" } }, [_vm._v("Cor")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -79031,7 +79086,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "text" },
+                    attrs: { id: "editCor", type: "text" },
                     domProps: { value: _vm.editCor },
                     on: {
                       input: function($event) {
@@ -79045,7 +79100,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Descrição")]),
+                  _c("label", { attrs: { for: "editDescricao" } }, [
+                    _vm._v("Descrição")
+                  ]),
                   _vm._v(" "),
                   _c("textarea", {
                     directives: [
@@ -79057,7 +79114,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "text" },
+                    attrs: { id: "editDescricao", type: "text" },
                     domProps: { value: _vm.editDescricao },
                     on: {
                       input: function($event) {
@@ -79136,7 +79193,6 @@ var render = function() {
                     expression: "keywords"
                   }
                 ],
-                staticClass: "form-control",
                 attrs: {
                   autocomplete: "off",
                   type: "text",
@@ -79154,6 +79210,8 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
+              _vm._m(10),
+              _vm._v(" "),
               _vm.results.length > 0 && _vm.keywords != ""
                 ? _c(
                     "ul",
@@ -79162,7 +79220,7 @@ var render = function() {
                         "a",
                         {
                           key: result.id,
-                          staticClass: "busca form-control",
+                          staticClass: "text-capitalize busca form-control",
                           attrs: { href: "/veiculos/" + result.id }
                         },
                         [
@@ -79189,13 +79247,13 @@ var render = function() {
                   ])
             ]),
             _vm._v(" "),
-            _vm._m(10)
+            _vm._m(11)
           ])
         ])
       ]
     ),
     _vm._v(" "),
-    _vm._m(11),
+    _vm._m(12),
     _vm._v(" "),
     _c(
       "div",
@@ -79206,7 +79264,7 @@ var render = function() {
       [
         _c("div", { staticClass: "modal-dialog" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(12),
+            _vm._m(13),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body ml-4" }, [
               _c(
@@ -79247,7 +79305,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(13)
+            _vm._m(14)
           ])
         ])
       ]
@@ -79595,6 +79653,12 @@ var staticRenderFns = [
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [_c("i", { staticClass: "bi bi-search" })])
   },
   function() {
     var _vm = this

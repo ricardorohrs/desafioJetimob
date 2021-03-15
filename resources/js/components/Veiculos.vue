@@ -48,71 +48,71 @@
                                 <form enctype="multipart/form-data">
 
                                     <div class="form-group">
-                                        <label>Marca</label>
+                                        <label for="marca">Marca</label>
                                         <input type="text" class="form-control" name="marca" id="marca" v-model="marca">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Modelo</label>
-                                        <input type="text" class="form-control" v-model="modelo">
+                                        <label for="modelo">Modelo</label>
+                                        <input id="modelo" type="text" class="form-control" v-model="modelo">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Ano</label>
-                                        <input type="number" class="form-control" v-model="ano">
+                                        <label for="ano">Ano</label>
+                                        <input id="ano" type="number" class="form-control" v-model="ano">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Placa</label>
-                                        <input type="text" placeholder="XXX-0000" class="form-control" v-model="placa">
+                                        <label for="placa">Placa</label>
+                                        <input id="placa" type="text" placeholder="XXX-0000" class="form-control" v-model="placa">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Categoria</label>
-                                        <select class="form-control" v-model="categoria">
+                                        <label for="categoria">Categoria</label>
+                                        <select id="categoria" class="form-control" v-model="categoria">
                                             <option>Novo</option>
                                             <option>Seminovo</option>
                                             <option>Usado</option>
                                         </select>
                                     </div>
 
-                                    <label>Preço</label>
+                                    <label for="preco">Preço</label>
                                     <div class="form-group input-group mb-3">
                                         <span class="input-group-text">R$</span>
-                                        <input type="text" class="form-control" v-model="preco">
+                                        <input id="preco" type="text" class="form-control" v-model="preco">
                                         <span class="input-group-text">,00</span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Câmbio</label>
-                                        <select class="form-control" v-model="cambio">
+                                        <label for="cambio">Câmbio</label>
+                                        <select id="cambio" class="form-control" v-model="cambio">
                                             <option>Automático</option>
                                             <option>Manual</option>
                                         </select>
                                     </div>
 
-                                    <label>Quilometragem</label>
+                                    <label for="quilometragem">Quilometragem</label>
                                     <div class="form-group input-group mb-3">
-                                        <input type="text" class="form-control" v-model="quilometragem">
+                                        <input id="quilometragem" type="text" class="form-control" v-model="quilometragem">
                                         <span class="input-group-text">Km</span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Motor</label>
-                                        <input type="text" class="form-control" v-model="motor">
+                                        <label for="motor">Motor</label>
+                                        <input id="motor" type="text" class="form-control" v-model="motor">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Portas</label>
-                                        <select class="form-control" v-model="portas">
+                                        <label for="portas">Portas</label>
+                                        <select id="portas" class="form-control" v-model="portas">
                                             <option>2</option>
                                             <option>4</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Combustível</label>
-                                        <select class="form-control" v-model="combustivel">
+                                        <label for="combustivel">Combustível</label>
+                                        <select id="combustivel" class="form-control" v-model="combustivel">
                                             <option>Gasolina</option>
                                             <option>Etanol</option>
                                             <option>Diesel</option>
@@ -121,13 +121,13 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Cor</label>
-                                        <input type="text" class="form-control" v-model="cor">
+                                        <label for="cor">Cor</label>
+                                        <input id="cor" type="text" class="form-control" v-model="cor">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Descrição</label>
-                                        <textarea type="text" class="form-control" v-model="descricao"></textarea>
+                                        <label for="descricao">Descrição</label>
+                                        <textarea id="descricao" type="text" class="form-control" v-model="descricao"></textarea>
                                     </div>
 
                                     <div class="form-group file">
@@ -242,70 +242,70 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label>Marca</label>
-                                <input type="text" class="form-control" name="marca" v-model="editMarca">
+                                <label for="editMarca">Marca</label>
+                                <input id="editMarca" type="text" class="form-control" name="marca" v-model="editMarca">
                             </div>
 
                             <div class="form-group">
-                                <label>Modelo</label>
-                                <input type="text" class="form-control" v-model="editModelo">
+                                <label for="editModelo">Modelo</label>
+                                <input id="editModelo" type="text" class="form-control" v-model="editModelo">
                             </div>
 
                             <div class="form-group">
-                                <label>Ano</label>
-                                <input type="number" class="form-control" v-model="editAno">
+                                <label for="editAno">Ano</label>
+                                <input id="editAno" type="number" class="form-control" v-model="editAno">
                             </div>
 
                             <div class="form-group">
-                                <label>Placa</label>
-                                <input type="text" placeholder="XXX-0000" class="form-control" v-model="editPlaca">
+                                <label for="editPlaca">Placa</label>
+                                <input id="editPlaca" type="text" placeholder="XXX-0000" class="form-control" v-model="editPlaca">
                             </div>
 
                             <div class="form-group">
-                                <label>Categoria</label>
-                                <select class="form-control" v-model="editCategoria">
+                                <label for="editCategoria">Categoria</label>
+                                <select id="editCategoria" class="form-control" v-model="editCategoria">
                                     <option>Novo</option>
                                     <option>Seminovo</option>
                                     <option>Usado</option>
                                 </select>
                             </div>
 
-                            <label>Preço</label>
+                            <label for="editPreco">Preço</label>
                             <div class="form-group input-group mb-3">
                                 <span class="input-group-text">R$</span>
-                                <input type="text" class="form-control" v-model="editPreco">
+                                <input id="editPreco" type="text" class="form-control" v-model="editPreco">
                             </div>
 
                             <div class="form-group">
-                                <label>Câmbio</label>
-                                <select class="form-control" v-model="editCambio">
+                                <label for="editCambio">Câmbio</label>
+                                <select id="editCambio" class="form-control" v-model="editCambio">
                                     <option>Automático</option>
                                     <option>Manual</option>
                                 </select>
                             </div>
 
-                            <label>Quilometragem</label>
+                            <label for="editQuilometragem">Quilometragem</label>
                             <div class="form-group input-group mb-3">
-                                <input type="text" class="form-control" v-model="editQuilometragem">
+                                <input id="editQuilometragem" type="text" class="form-control" v-model="editQuilometragem">
                                 <span class="input-group-text">Km</span>
                             </div>
 
                             <div class="form-group">
-                                <label>Motor</label>
-                                <input type="text" class="form-control" v-model="editMotor">
+                                <label for="editMotor">Motor</label>
+                                <input id="editMotor" type="text" class="form-control" v-model="editMotor">
                             </div>
 
                             <div class="form-group">
-                                <label>Portas</label>
-                                <select class="form-control" v-model="editPortas">
+                                <label for="editPortas">Portas</label>
+                                <select id="editPortas" class="form-control" v-model="editPortas">
                                     <option>2</option>
                                     <option>4</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label>Combustível</label>
-                                <select class="form-control" v-model="editCombustivel">
+                                <label for="editCombustivel">Combustível</label>
+                                <select id="editCombustivel" class="form-control" v-model="editCombustivel">
                                     <option>Gasolina</option>
                                     <option>Etanol</option>
                                     <option>Diesel</option>
@@ -314,13 +314,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Cor</label>
-                                <input type="text" class="form-control" v-model="editCor">
+                                <label for="editCor">Cor</label>
+                                <input id="editCor" type="text" class="form-control" v-model="editCor">
                             </div>
 
                             <div class="form-group">
-                                <label>Descrição</label>
-                                <textarea type="text" class="form-control" v-model="editDescricao"></textarea>
+                                <label for="editDescricao">Descrição</label>
+                                <textarea id="editDescricao" type="text" class="form-control" v-model="editDescricao"></textarea>
                             </div>
 
                             <div class="form-group file">
@@ -434,9 +434,10 @@
                     </div>
 
                     <div class="modal-body">
-                        <input autocomplete="off" type="text" id="search" class="form-control" placeholder="Buscar por marca" v-model="keywords">
+                        <input autocomplete="off" type="text" id="search" class="" placeholder="Buscar por marca" v-model="keywords">
+                        <span><i class="bi bi-search"></i></span>
                         <ul v-if="results.length > 0 && keywords != ''">
-                            <a :href="'/veiculos/' + result.id" class="busca form-control" v-for="result in results" :key="result.id">
+                            <a :href="'/veiculos/' + result.id" class="text-capitalize busca form-control" v-for="result in results" :key="result.id">
                                 &ensp;#{{ result.id }} - {{ result.marca }} - {{ result.modelo }} - {{ result.ano }}
                             </a>
                         </ul>
@@ -453,7 +454,7 @@
         </div>
         <!-- Fim do modal de busca por veículos -->
 
-        <!-- Modal de criação -->
+        <!-- Modal de criação com sucesso -->
         <div class="modal fade" id="criacao" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -475,7 +476,7 @@
                 </div>
             </div>
         </div>
-        <!-- Fim do modal de criação -->
+        <!-- Fim do modal de criação com sucesso -->
 
         <!-- Modal de histórico -->
         <div class="modal fade" id="historico" tabindex="-1" aria-hidden="true">
@@ -553,7 +554,7 @@ export default {
         }
     },
     watch: {
-        keywords(after, before) {
+        keywords() {
             this.fetch();
         }
     },
@@ -656,8 +657,7 @@ export default {
         },
         fetch() {
             axios.get('/search', { params: { keywords: this.keywords } })
-                .then(response => this.results = response.data)
-                .catch(error => {});
+                .then(response => this.results = response.data);
         },
         relatorios() {
             axios.get('/relatorios');
