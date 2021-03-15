@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Recuperar senha')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center mt-5">

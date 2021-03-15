@@ -6,18 +6,26 @@
                 <div class="row justify-content-start">
                     <div class="cadastrar">
                         <ul>
-                            <button type="button" id="cadastro" class="btn btn-success" data-toggle="modal" data-target="#criarVeiculo">
+                            <button type="button" class="botao btn btn-success" data-toggle="modal" data-target="#criarVeiculo">
                                 Cadastrar Veículo
                             </button>
                         </ul>
                     </div>
                     <div class="buscar">
                         <ul>
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#busca">
+                            <button type="button" class="botao btn btn-success" data-toggle="modal" data-target="#busca">
                                 Buscar Veículo
                             </button>
                         </ul>
                     </div>
+                    <div class="historico">
+                        <ul>
+                            <button type="button" class="botao btn btn-success" data-toggle="modal" data-target="#historico">
+                                Histórico
+                            </button>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
 
@@ -135,6 +143,8 @@
                                         <button
                                             type="submit"
                                             @click.prevent="store"
+                                            data-toggle="modal"
+                                            data-target="#criacao"
                                             class="btn btn-success">Cadastrar</button>
                                     </div>
 
@@ -164,7 +174,7 @@
                                     <th scope="col">Categoria</th>
                                     <th scope="col">Preço</th>
                                     <th scope="col">Opções</th>
-                                    <th scope="col">Vendido</th>
+                                    <th scope="col">Vendido?</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -202,7 +212,8 @@
                                             title="Vendido">
                                         </button>
                                     </td>
-                                    <td title="Data e hora da venda">{{carro.venda}}</td>
+                                    <td v-if="carro.venda != null" title="Data e hora da venda">Sim</td>
+                                    <td v-else title="Data e hora da venda">Não</td>
 
                                 </tr>
                             </tbody>
@@ -342,14 +353,12 @@
         <div class="modal fade" id="modalEdicao" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
+
                     <div class="modal-header">
-
                         <h5 class="modal-title">Edição concluída!</h5>
-
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-
                     </div>
 
                     <div class="modal-body">
@@ -368,14 +377,12 @@
         <div class="modal fade" id="modalExclusao" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
+
                     <div class="modal-header">
-
                         <h5 class="modal-title">Excluir</h5>
-
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-
                     </div>
 
                     <div class="modal-body">
@@ -385,7 +392,6 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -395,14 +401,12 @@
         <div class="modal fade" id="modalVenda" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
+
                     <div class="modal-header">
-
                         <h5 class="modal-title">Vendido!</h5>
-
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-
                     </div>
 
                     <div class="modal-body">
@@ -412,7 +416,6 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -422,14 +425,12 @@
         <div class="modal fade modBusca" id="busca" tabindex="-1">
             <div class="modal-dialog buscarModal">
                 <div class="modal-content">
+
                     <div class="modal-header">
-
                         <h5 class="modal-title">Buscar veículo</h5>
-
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-
                     </div>
 
                     <div class="modal-body">
@@ -447,11 +448,64 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
-
                 </div>
             </div>
         </div>
         <!-- Fim do modal de busca por veículos -->
+
+        <!-- Modal de criação -->
+        <div class="modal fade" id="criacao" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Novo cadastro de veículo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Veículo cadastrado com sucesso!</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do modal de criação -->
+
+        <!-- Modal de histórico -->
+        <div class="modal fade" id="historico" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Histórico</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body ml-4">
+                        <tbody>
+                            <tr v-for="carro in carros.data" :key="carro.id">
+                                <li class="card px-4 mt-2 py-2">O veículo #{{carro.id}} foi cadastrado em {{carro.created_at}}</li>
+                                <li class="card px-4 mt-2 py-2">O veículo #{{carro.id}} foi atualizado em {{carro.updated_at}}</li>
+                                <li v-if="carro.venda != null" class="card px-4 mt-2 py-2">O veículo #{{carro.id}} foi vendido em {{carro.venda}}</li>
+                            </tr>
+                        </tbody>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do modal de histórico -->
 
     </div>
 </template>
@@ -477,6 +531,8 @@ export default {
             combustivel: '',
             motor: '',
             venda: '',
+            created_at: '',
+            updated_at: '',
             editMarca: '',
             editModelo: '',
             editAno: '',
@@ -491,6 +547,7 @@ export default {
             editCambio: '',
             editCombustivel: '',
             editMotor: '',
+            editVenda: '',
             keywords: null,
             results: []
         }
@@ -579,7 +636,7 @@ export default {
                portas: this.editPortas,
                cambio: this.editCambio,
                combustivel: this.editCombustivel,
-               motor: this.editMotor
+               motor: this.editMotor,
             })
             .then(response => {
                 this.getResults();
@@ -605,7 +662,6 @@ export default {
         relatorios() {
             axios.get('/relatorios');
         }
-
     }
 }
 </script>

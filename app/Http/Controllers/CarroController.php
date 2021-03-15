@@ -26,19 +26,6 @@ class CarroController extends Controller {
         $carro->combustivel = $request->combustivel;
         $carro->portas = $request->portas;
         $carro->motor = $request->motor;
-        $carro->venda = $request->venda;
-
-        if ($carro->descricao == '') {
-            $carro->descricao = "Não informado";
-        } elseif ($carro->cor == '') {
-            $carro->cor = "Não informado";
-        } elseif ($carro->quilometragem == '') {
-            $carro->quilometragem = "Não informado";
-        } elseif ($carro->motor == '') {
-            $carro->motor = "Não informado";
-        } elseif ($carro->placa == '') {
-            $carro->placa = "Não informado";
-        }
 
         $carro->save();
     }
@@ -64,13 +51,13 @@ class CarroController extends Controller {
         $carro->placa = $request->placa;
         $carro->categoria = $request->categoria;
         $carro->preco = $request->preco;
+        $carro->descricao = $request->descricao;
         $carro->cor = $request->cor;
         $carro->quilometragem = $request->quilometragem;
         $carro->cambio = $request->cambio;
         $carro->combustivel = $request->combustivel;
         $carro->portas = $request->portas;
         $carro->motor = $request->motor;
-        $carro->venda = $request->venda;
         $carro->update();
     }
 
@@ -93,10 +80,7 @@ class CarroController extends Controller {
             'ano' => 'required|integer|min:0|max:2021',
             'categoria' => 'required',
             'preco' => 'required',
-            'quilometragem' => 'required',
-            'cor' => 'required',
             'portas' => 'required',
-            'motor' => 'required',
             'cambio' => 'required',
             'combustivel' => 'required',
         ]), function () {

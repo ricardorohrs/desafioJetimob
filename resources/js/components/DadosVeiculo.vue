@@ -24,7 +24,8 @@
                 <div class="col-lg-2 grow">
                     <span>Placa</span>
                     <br>
-                    <strong>{{ placa }}</strong>
+                    <strong v-if="placa != ''">{{ placa }}</strong>
+                    <strong v-else>Não informado</strong>
                 </div>
 
                 <div class="col-lg-2 grow">
@@ -54,7 +55,8 @@
                 <div class="col-lg-2 grow">
                     <span>Quilometragem</span>
                     <br>
-                    <strong>{{ quilometragem }} Km</strong>
+                    <strong v-if="quilometragem != ''">{{ quilometragem }} Km</strong>
+                    <strong v-else>Não informado</strong>
                 </div>
 
                 <div class="col-lg-2 grow">
@@ -66,7 +68,8 @@
                 <div class="col-lg-2 grow">
                     <span>Motor</span>
                     <br>
-                    <strong>{{ motor }}</strong>
+                    <strong v-if="motor != ''">{{ motor }}</strong>
+                    <strong v-else>Não informado</strong>
                 </div>
 
                 <div class="col-lg-2 grow">
@@ -78,7 +81,8 @@
                 <div class="col-lg-2 grow">
                     <span>Cor</span>
                     <br>
-                    <strong class="text-capitalize">{{ cor }}</strong>
+                    <strong v-if="cor != ''" class="text-capitalize">{{ cor }}</strong>
+                    <strong v-else class="text-capitalize">Não informado</strong>
                 </div>
             </div>
 
@@ -90,7 +94,8 @@
                 <div class="col-md-10 col-sm-3">
                     <span>Descrição</span>
                     <br>
-                    <strong>{{ descricao }}</strong>
+                    <strong v-if="descricao != ''">{{ descricao }}</strong>
+                    <strong v-else>Não informado</strong>
                 </div>
             </div>
         </div>

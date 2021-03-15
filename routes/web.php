@@ -30,9 +30,3 @@ Route::get('/veiculos/{carro}', 'App\Http\Controllers\CarroController@show');
 Route::get('/search', 'App\Http\Controllers\CarroController@search');
 Route::get('marcaVenda/{id}', 'App\Http\Controllers\CarroController@marcaVenda');
 Route::get('/relatorios/{carros}', 'App\Http\Controllers\RelatorioController@index')->middleware('auth');;
-
-Route::get('/historico', function () {
-    return view('historico');
-})->middleware('auth');
-
-

@@ -22,7 +22,6 @@ window.Vue = require('vue').default;
 Vue.component('relatorios', require('./components/Relatorios.vue').default);
 Vue.component('veiculos', require('./components/Veiculos.vue').default);
 Vue.component('dados-veiculo', require('./components/DadosVeiculo').default);
-Vue.component('historico', require('./components/Historico.vue').default);
 
 Vue.component('pagination', require('laravel-vue-pagination'));
 

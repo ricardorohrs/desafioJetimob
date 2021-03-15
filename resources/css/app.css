@@ -80,9 +80,16 @@ ul p {
     padding: 7px;
 }
 
+.botao {
+    width: 150px;
+}
 
 .buscarModal {
     width: 360px !important;
+}
+
+tbody tr li:hover {
+    background-color: #ECECEC;
 }
 
 @media screen and (max-width: 750px) {

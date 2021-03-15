@@ -53,10 +53,6 @@
                             <a class="nav-link {{ Request::path() == 'relatorios/undefined' ? 'font-weight-bolder' : '' }}" :href="'/relatorios/' + carros">Relatórios</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::path() === 'historico' ? 'font-weight-bolder' : '' }}" href="/historico">Histórico</a>
-                        </li>
-
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
