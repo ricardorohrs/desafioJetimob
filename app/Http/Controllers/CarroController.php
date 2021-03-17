@@ -63,7 +63,7 @@ class CarroController extends Controller {
 
     public function destroy ($id) {
 
-        $carro = Carro::findOrFail($id)->delete();
+        Carro::findOrFail($id)->delete();
     }
 
     public function show($id) {

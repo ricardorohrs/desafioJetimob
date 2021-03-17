@@ -37,10 +37,6 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Lado esquerdo do menu -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
 
                     <!-- Lado direito do menu -->
                     <ul class="navbar-nav ml-auto">

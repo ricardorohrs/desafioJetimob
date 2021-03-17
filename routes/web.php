@@ -26,7 +26,7 @@ Route::put('update', 'App\Http\Controllers\CarroController@update');
 Route::delete('destroy/{id}', 'App\Http\Controllers\CarroController@destroy');
 
 Route::get('/veiculos', 'App\Http\Controllers\HomeController@index');
-Route::get('/veiculos/{carro}', 'App\Http\Controllers\CarroController@show');
+Route::get('/veiculos/{carro}', 'App\Http\Controllers\CarroController@show')->middleware('auth');
 Route::get('/search', 'App\Http\Controllers\CarroController@search');
 Route::get('marcaVenda/{id}', 'App\Http\Controllers\CarroController@marcaVenda');
-Route::get('/relatorios/{carros}', 'App\Http\Controllers\RelatorioController@index')->middleware('auth');;
+Route::get('/relatorios/{carros}', 'App\Http\Controllers\RelatorioController@index')->middleware('auth');

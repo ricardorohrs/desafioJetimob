@@ -201,7 +201,7 @@
                                            @click="destroy(carro.id)"
                                            class="btn btn-outline-danger bi bi-trash-fill"
                                            data-toggle="modal"
-                                           data-target="#modalEdicao"
+                                           data-target="#modalExclusao"
                                            title="Excluir">
                                         </button>
                                         <button type="button"

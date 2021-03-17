@@ -78615,7 +78615,7 @@ var render = function() {
                           attrs: {
                             type: "button",
                             "data-toggle": "modal",
-                            "data-target": "#modalEdicao",
+                            "data-target": "#modalExclusao",
                             title: "Excluir"
                           },
                           on: {
