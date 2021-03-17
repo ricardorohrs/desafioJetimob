@@ -7,7 +7,14 @@
 **Escopo do projeto**: O projeto tem o escopo simulado em um sistema de gerenciamento de revendas de automóveis tendo a maioria de suas funcionalidades especificadas neste
 documento. Se não houver especificação suficiente, fica a critério do desenvolvedor encontrar a melhor solução e defendê-la na hora de apresentar o sistema.
 
-**Tecnologias**: Laravel 8 + Vue JS + Postgres (Todos o mais atualizados possível)
+**Tecnologias**: Laravel 8 + Vue JS + Postgres (Todos o mais atualizados possível);
+
+**Design**: Por conta do desenvolvedor.
+
+## O projeto
+
+   O cliente Jesus Da Silva da empresa Carro e CIA possui uma grande dificuldade em gerenciar os carros que a sua empresa possui. Através dos papéis que ele utiliza diariamente, ele está suscetível a: extravio das folhas, danos causados pela água, e consequentemente mofo, desgaste com o tempo, etc. Para solucionar esse problema ele solicitou a criação de um software.
+   Jesus quer que seja elaborado um sistema web de gerenciamento de automóveis, tendo a possibilidade de realizar o cadastro e possuir diferentes logins no sistema para que todos os seus funcionários tenham a possibilidade de logar no mesmo. Ele solicitou também que o sistema possua uma dashboard exibindo gráficos de cunho informativo sobre as ações realizadas dentro do sistema para que seus funcionários, e ele, acompanhem o andamento da empresa. Obviamente, para isso, deve existir a possibilidade de cadastro de automóveis assim como a visualização dos itens cadastrados em forma de lista.
 
 ## User Story
 
