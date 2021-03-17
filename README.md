@@ -1,62 +1,20 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Sobre o projeto
 
-## About Laravel
+**Apresentação do projeto**: Este projeto tem como objetivo analisar as habilidades do desenvolvedor que participar do processo seletivo para a posição de Full Stack dentro da Jetimob.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Escopo do projeto**: O projeto tem o escopo simulado em um sistema de gerenciamento de revendas de automóveis tendo a maioria de suas funcionalidades especificadas neste
+documento. Se não houver especificação suficiente, fica a critério do desenvolvedor encontrar a melhor solução e defendê-la na hora de apresentar o sistema.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Tecnologias**: Laravel 8 + Vue JS + Postgres (Todos o mais atualizados possível)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## User Story
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Login**: Eu como usuário desejo poder acessar o sistema, através de uma tela de login com campos (nome/email e senha). (Não esquecer que a segurança dessa etapa será avaliada);
+- **Cadastro de usuários**: Eu como usuário ao identificar que não possuo conta, desejo fazer o cadastro na mesma tela de login sem ter a necessidade de navegar para fora dessa, fornecendo apenas informações necessárias. (dados básicos de pessoa);
+- **Dashboard**: Eu como usuário desejo ter acesso a uma dashboard com relatório(s) do sistema com informações referentes às ações realizadas no sistema. (A critério do participante escolher quais, quantos e como exibir essas infos);
+- **CRUD de cadastro de carro**: Eu como usuário desejo ter a possibilidade de cadastrar, editar, visualizar e remover um carro no sistema. (Os campos para o cadastro, assim como a visualização dessas telas, ficam sob escolha do participante com base no projeto. Observar a quantidade mínima de cinco campos);
+- **Lista**: Eu como usuário desejo visualizar todos carros cadastrados no sistema em forma de lista junto de botões de ação em cada item dessa lista para que eu possa tomar ações rápidas. Também desejo clicar no automóvel da lista para visualizar mais informações. (A critério do participante escolher quais informações, quantos e como exibir nesta lista);
+- **Busca de carros**: Eu como usuário quero ter a possibilidade de realizar uma busca por carros para que eu encontre de forma mais simples e rápida o que eu desejo. (A critério do participante escolher como realizar e o que filtrar nessa busca);
+**Histórico**: Eu como usuário desejo acessar o histórico de alterações dos respectivos automóveis, para que eu saiba rapidamente quando e o que foi feito.(A critério do participante escolher quais informações e como será exibido esse histórico;
