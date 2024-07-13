@@ -95,7 +95,7 @@
 
     <footer class="footer">
         <hr class="shadow-sm">
-        <span>Desenvolvido por Ricardo Röhrs <i class="bi bi-cone-striped text-success"></i> Jetimob</span>
+        <span>Desenvolvido por <a style="color: inherit" href="https://www.linkedin.com/in/ricardorohrs"><b>Ricardo Röhrs</b></a> <i class="bi bi-cone-striped text-success"/></span>
     </footer>
 
 </body>

@@ -21,7 +21,7 @@ class CreateCarrosTable extends Migration
             $table->enum('categoria', ['Novo', 'Seminovo', 'Usado']);
             $table->string('preco');
             $table->string('placa')->nullable()->default('Não informado');
-            $table->text('descricao')->nullable()->default('Não informado');
+            $table->text('descricao')->nullable();
             $table->string('image')->nullable()->default('Não informado');
             $table->string('cor')->nullable();
             $table->string('quilometragem')->nullable();
